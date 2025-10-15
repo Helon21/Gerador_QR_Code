@@ -21,9 +21,9 @@ public class QrCodeController {
     private final QrCodeService qrCodeService;
 
     @PostMapping
-    public ResponseEntity<QrCodeGenerateResponse> generate(@RequestBody QrCodeGenerateRequest request) {
+    public ResponseEntity<QrCodeGenerateResponse> generateAndUpload(@RequestBody QrCodeGenerateRequest request) {
         try {
-            QrCodeGenerateResponse qrCodeGenerateResponse = this.qrCodeService.generate(request.text());
+            QrCodeGenerateResponse qrCodeGenerateResponse = this.qrCodeService.generateAndUpload(request.text());
             return ResponseEntity.status(HttpStatus.CREATED).build();
         } catch (Exception e) {
             log.error("Error generating qr code", e);

@@ -20,7 +20,7 @@ public class QrCodeService {
 
     private final StoragePorts storage;
 
-    public QrCodeGenerateResponse generate(String text) throws WriterException, IOException {
+    public QrCodeGenerateResponse generateAndUpload(String text) throws WriterException, IOException {
         QRCodeWriter qrCodeWriter = new QRCodeWriter();
         BitMatrix bitMatrix = qrCodeWriter.encode(text, BarcodeFormat.QR_CODE, 200, 200);
 
